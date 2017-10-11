@@ -15,7 +15,7 @@ export class AppComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.http.get<Post>('https://reddit.com/r/php/search.json?q=cats&limit=5')
+    this.http.get<Post>('https://www.reddit.com/r/php/search.json?q=cats&limit=5')
     .subscribe(result=>{
       this.postList = result.data.children;
       console.log('this.postList', this.postList);
