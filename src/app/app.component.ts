@@ -7,22 +7,37 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  public query: string;
+  public queryString: string;
   public postList;
-  title = 'WTT';
+  title = 'our Reddit Search!!!';
 
   constructor(
     private http: HttpClient,
   ) {}
 
   ngOnInit() {
-    this.http.get<Post>('https://www.reddit.com/r/php/search.json?q=cats&limit=5')
+
+  }
+  searchPosts(){
+    console.log("bound!", this.query);
+    this.queryString = `https://www.reddit.com/r/all/search.json?q=${this.query}&limit=5`;
+    console.log("queryString", this.queryString);
+    this.getPosts();
+  }
+
+  getPosts(): void{ //not returning anything; subscribe doesn't return anything
+    this.http.get<Post>(this.queryString)
     .subscribe(result=>{
       this.postList = result.data.children;
       console.log('this.postList', this.postList);
-      // this.postList.forEach(post =>{})
+      this.postList.forEach(post =>{
+        post.data.created = post.data.created * 1000;
+      })
     });
   }
 }
+
 export class Post{
   data: PostData;
 }

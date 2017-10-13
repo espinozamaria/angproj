@@ -1,0 +1,36 @@
+.row{
+  background-color: tan;
+  padding: 10px;
+}
+
+h1{
+  color: slategray;
+}
+
+.container-fluid{
+  background-color: skyblue;
+  padding-bottom: 50px;
+}
+img{
+  display: block;
+}
+span{
+  display: block;
+}
+.searchbox{
+  padding-top: 10px;
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.hidden{
+  display: none;
+}
+button{
+  border-radius: 10px;
+  border-color: transparent;
+}
+input{
+  border-radius: 10px;
+  border-color: transparent;
+}

@@ -1,6 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!
   </h1>
 </div>
+<div class="searchbox">
+  <label for="Subject"></label>
+  <input name="subject" type="text" [(ngModel)]="query">
+  <button (click)="searchPosts()">Submit</button>
+</div>
+<div>
+  <ul>
+        <li *ngFor="let post of postList">
+          <div class="row container">
+            <div class="col-md-4">
+              <a href="{{ post.data.url }}" target="_blank">
+                {{post.data.title}}
+                <img src="{{post.data.thumbnail}}" alt="">
+              </a>
+              </div>
+              <div class="col-md-4">
+                <p class="hidden"></p>
+                <p class="hidden"></p>
+                <span>By: {{post.data.author}}</span>
+                <span>Up Votes: {{post.data.ups}}</span>
+                <span>Date posted: {{post.data.created | date}}</span>
+              </div>
+            </div>
+        </li>
+  </ul>
+</div>
+</div> <!-- End of container div -->
