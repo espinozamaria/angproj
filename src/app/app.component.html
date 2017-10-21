@@ -10,9 +10,14 @@
   <input name="subject" type="text" [(ngModel)]="query">
   <button (click)="searchPosts()">Submit</button>
 </div>
+
+<input type="text"
+              placeholder="Search List"
+              class="filter-input"
+              [(ngModel)]="searchText">
 <div>
   <ul>
-        <li *ngFor="let post of postList">
+        <li *ngFor="let post of postList | searchBy: ['data.title']: [searchText]">
           <div class="row container">
             <div class="col-md-4">
               <a href="{{ post.data.url }}" target="_blank">

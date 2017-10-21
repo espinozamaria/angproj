@@ -5,9 +5,13 @@ import{HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
+//Pipes
+import{ SearchByPipe } from './pipes/search-by.pipe';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchByPipe,
   ],
   imports: [
     BrowserModule,
